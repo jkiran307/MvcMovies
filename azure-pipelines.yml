@@ -32,3 +32,11 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'AzureDevOps(072c1136-ad60-4101-bdf4-e28f1f37a213)'
+    appType: 'webApp'
+    WebAppName: 'mvcmovie'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
